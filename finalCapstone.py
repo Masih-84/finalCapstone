@@ -28,3 +28,17 @@ def make_word_groups(vocab_words):
     return ' :: '.join([prefix] + prefixed_words)
     pass
 
+def remove_suffix_ness(word):
+    """Remove the suffix from the word while keeping spelling in mind.
+
+    :param word: str - of word to remove suffix from.
+    :return: str - of word with suffix removed & spelling adjusted.
+
+    For example: "heaviness" becomes "heavy", but "sadness" becomes "sad".
+    """
+    if word.endswith('iness'):
+        return word[:-5] + 'y'
+    else:
+        return word[:-4]
+    pass
+
