@@ -7,3 +7,24 @@ def add_prefix_un(word):
     """
     return "un" + word
     pass
+
+def make_word_groups(vocab_words):
+    """Transform a list containing a prefix and words into a string with the prefix followed by the words with prefix prepended.
+
+    :param vocab_words: list - of vocabulary words with prefix in first index.
+    :return: str - of prefix followed by vocabulary words with
+            prefix applied.
+
+    This function takes a `vocab_words` list and returns a string
+    with the prefix and the words with prefix applied, separated
+     by ' :: '.
+
+    For example: list('en', 'close', 'joy', 'lighten'),
+    produces the following string: 'en :: enclose :: enjoy :: enlighten'.
+    """
+    prefix = vocab_words[0]
+    words = vocab_words[1:]
+    prefixed_words = [prefix + word for word in words]
+    return ' :: '.join([prefix] + prefixed_words)
+    pass
+
